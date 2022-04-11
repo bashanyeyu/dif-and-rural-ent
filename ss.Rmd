@@ -1,0 +1,37 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+
+dif=openxlsx::read.xlsx("D:\\WPS Office\\WPS Cloud Files\\博士论文开题\\乡村企业的生存与发展问题研究\\基于河南省的初步研究结果\\北京大学数字普惠金融指数（PKU-DFIIC）2011_2020.xlsx",6)
+
+library(dplyr)
+library(table1)
+library(rvest)
+
+henandesc=table1(~ index_aggregate +coverage_breadth +usage_depth+digitization_level|year, data=filter(dif,prov_name=='河南省',!grepl('区',county_name_year14),year>2010), overall = F)
+henandesc
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
