@@ -23,14 +23,13 @@ tm_shape(xian.shp) + tm_polygons(col = 'grey' )
 
 sheng.shp=read_sf("2019中国地图-审图号GS(2019)1822号\\省（等积投影）.shp")
 sheng.shp=as_Spatial(sheng.shp)
-shengmap=tm_shape(sheng.shp) +tm_polygons()
+shengmap=tm_shape(sheng.shp,bbox=st_bbox(c(xmin = 82, xmax = 128, ymax = 55, ymin = 15), crs = st_crs(4326))) +tm_polygons()
 vip_map = viewport(0.91, 0.19, width = 0.28, height = 0.2)
 shengmap
-ggplot(data = sheng.shp,aes(fill=省)) + 
-  geom_sf(color = "black")
 
 
-tm_shape(xian.shp,bbox=st_bbox(c(xmin = 82, xmax = 128, ymax = 50, ymin = 15), crs = st_crs(4326))) + tm_polygons( )+ tm_layout(frame = FALSE)
+
+tm_shape(xian.shp,) + tm_polygons( )+ tm_layout(frame = FALSE)
   
   
   
