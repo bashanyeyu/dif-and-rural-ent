@@ -24,7 +24,7 @@ library(rvest)
 
 henandesc=table1(~ index_aggregate +coverage_breadth +usage_depth+digitization_level|year, data=filter(dif,prov_name=='河南省',!grepl('区',county_name_year14),year>2010), overall = F)
 henandesc
-0411
+3333
 ```
 
 ## Including Plots
